@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/test",
+    {
+      "path": "pages/index",
+      "config": {
+        "navigationBarTitleText": "首页",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/counter",
+    {
+      "path": "packageA/logs",
+      "subPackage": true
+    }
+  ],
+  "window": {
+    "navigationStyle":"custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-tag": "/vant-weapp/dist/tag/index",
+    "van-nav-bar": "/vant-weapp/dist/nav-bar/index",
+    "van-tabbar": "/vant-weapp/dist/tabbar/index",
+    "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index"
+  }
+}

@@ -1,0 +1,72 @@
+@charset "UTF-8";
+//灰度分成6个等级
+$white: #fff;
+$light: #ddd;
+$stable: #BDBDBD;
+$dark: #666;
+$darker: #333;
+$black: #000;
+//提示色
+$positive: #3399ff;
+$danger: #fe575c;
+$warning: #ffe002;
+$balanced: #64c641;
+$calm: #00aaaf;
+$theme: '';
+$theme: #3887fe;
+$theme2:#FEE27F;
+$bgTheme:#ECEEFA;
+
+.p-bg-danger{
+  background-color: $danger!important;
+}
+.p-bg-theme{
+  background-color: $theme!important;
+}
+.p-bg-warning{
+  background-color: $warning!important;
+}
+.p-bg-balanced{
+  background-color: $balanced!important;
+}
+.p-bg-stable{
+  background-color: #BDBDBD!important;
+}
+
+.p-danger{
+  color: $danger;
+}
+.p-theme{
+  color: $theme;
+}
+.p-warning{
+  color: $warning;
+}
+
+
+//提亮
+$theme_lighter: lighten($theme,10%);
+$calm_lighter: lighten($calm,10%);
+$danger_lighter: lighten($danger,10%);
+$warning_lighter: lighten($warning,10%);
+$balanced_lighter: lighten($balanced,10%);
+$positive_lighter: lighten($positive,10%);
+$light_lighter: lighten($light,10%);
+$stable_lighter: lighten($stable,10%);
+$dark_lighter:lighten($dark,10%);
+$darker_lighter: lighten($darker,10%);
+//变暗
+$theme_darker: darken($theme,10%);
+$calm_darker: darken($calm,10%);
+$danger_darker: darken($danger,10%);
+$warning_darker: darken($warning,10%);
+$balanced_darker: darken($balanced,10%);
+$positive_darker: darken($positive,10%);
+$light_darker: darken($light,10%);
+$stable_darker: darken($stable,10%);
+$dark_darker: darken($dark,10%);
+$darker_darker: darken($darker,10%);
+//颜色名和颜色值
+$color_name:light stable dark darker theme positive danger warning balanced calm;
+$color_value:$light $stable $dark $darker $theme $positive $danger $warning $balanced $calm;
+$color_length:length($color_name);

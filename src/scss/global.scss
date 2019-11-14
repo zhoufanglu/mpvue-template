@@ -1,0 +1,168 @@
+@charset "UTF-8";
+@mixin vertical-center { // 垂直水平居中
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin ellipsis($line){ // 超出行显示...
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+@mixin panel{ // panel
+  border-radius: 6px;
+  padding: 20rpx;
+  background-color: #ffffff;
+}
+//底部1px的实现
+@mixin border-1px-bottom($color) {
+  position: relative;
+  // 用于伪类的定位
+  &:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    border-bottom:1px solid $color;
+    color: $color;
+    height: 200%;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    pointer-events: none; /* 防止点击触发 */
+    box-sizing: border-box;
+    @media screen and (min-device-pixel-ratio:3),(-webkit-min-device-pixel-ratio:3){
+      width: 300%;
+      height: 300%;
+      -webkit-transform: scale(0.33);
+      transform: scale(0.33);
+    }
+  }
+}
+//基本的行 带三角，带虚线下划线，分左右两边对齐
+@mixin base-row{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //padding: 0 20rpx;
+  @include border-1px-bottom($light);
+  &:before{
+    border-bottom:1px dashed $light;
+  }
+}
+
+@mixin border-1px-all($color,$radius) {
+  position: relative;
+  // 用于伪类的定位
+  &:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    border:1px solid $color;
+    border-radius: $radius!important;
+    color: $color;
+    height: 200%;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    pointer-events: none; /* 防止点击触发 */
+    box-sizing: border-box;
+    @media screen and (min-device-pixel-ratio:3),(-webkit-min-device-pixel-ratio:3){
+      width: 300%;
+      height: 300%;
+      -webkit-transform: scale(0.33);
+      transform: scale(0.33);
+    }
+  }
+}
+@mixin text{
+  font-size: 26rpx;
+  letter-spacing: 3rpx;
+  span{
+    font-weight: bolder;
+  }
+}
+
+@mixin zoomSize($width,$height){
+  -webkit-transform: scale($width,$height);
+  -moz-transform: scale($width,$height);
+  -o-transform: scale($width,$height);
+  transform: scale($width,$height);
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1236590 */
+  src: url('//at.alicdn.com/t/font_1236590_rcdeharltsn.eot');
+  src: url('//at.alicdn.com/t/font_1236590_rcdeharltsn.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1236590_rcdeharltsn.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1236590_rcdeharltsn.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1236590_rcdeharltsn.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1236590_rcdeharltsn.svg#iconfont') format('svg');
+}
+.icon-font{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;}
+
+body{
+  color: $dark;
+}
+
+//css 打点
+dot {
+  &::before{
+    content: '...';
+    position: absolute;
+    animation: dot2 3s infinite step-start both;
+  }
+  &:after{
+    content: '...';
+    color: transparent;
+  }
+}
+@keyframes dot2 {
+  33% { content: '.';}
+  66% { content: '..';}
+}
+
+//以下为全局弹窗的设置
+.dialog-index--van-dialog{
+  border-radius: 24rpx!important;
+  height: 350rpx;
+  .van-dialog__message--has-title{
+    padding:50rpx;
+    @include vertical-center;
+  }
+  .dialog-index--van-dialog__confirm{
+    background-color: $theme;
+    color: white!important;
+    width: 470rpx;
+    height: 60rpx;
+    line-height:60rpx;
+    margin: 0 auto!important;
+    border-radius: 120rpx;
+  }
+  .van-dialog__button{
+    display: flex;
+  }
+  .van-hairline--top{
+    &:after{
+      border: none!important;
+    }
+  }
+  .van-hairline--bottom{
+    &:after{
+      border: none!important;
+    }
+  }
+}
