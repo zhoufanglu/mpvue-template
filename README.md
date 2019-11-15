@@ -6,7 +6,11 @@
 ## 插件
     1、`mpvue-entry` 分包
     2、`mpvue-router-patch`模拟路由跳转
+    3、`axios` 使用了`axios`进行接口请求，进行了简单封装, 路径:'src/axios'
+    4、`vuex` 状态管理, 路径: 'src/store'
+    5、`scss` 支持`scss`环境,支持引入全局`scss`文件, 路径:'src/scss'
 
 ## 自定义了`tabbar`和`navbar`
     * `src/components/global/footComponent.vue`
     * `src/components/global/headComponent.vue`
+## 若有问题 请+`qq:735417031 答案：卢方舟`
