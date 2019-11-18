@@ -18,7 +18,6 @@
 </template>
 <script>
     import {mapState,mapMutations } from 'vuex';
-    import axios from 'axios'
     export default {
         name: '',
         data() {
@@ -28,21 +27,32 @@
         ...mapState(["count"])
       },
       methods: {
-        ...mapMutations([
-          'increment',
-          "decrement"
-        ])
+          testMock(){
+            this.$post(
+                `/getCourseList`,
+                {data:'xxx'},
+                false
+            ).then((res) => {
+                console.log(44, res)
+            })
+          },
+          ...mapMutations([
+            'increment',
+            "decrement"
+          ])
       },
       components: {},
       onShow() {
-        //https://api.agify.io/?name='nice'
+        this.testMock()
         //console.log(37, this.$doMain)
+
         //请求测试
-        this.$get(
-          `https://suggest.taobao.com/sug?code=utf-8&q=手机`,
+        //https://suggest.taobao.com
+        /*this.$get(
+          `https://suggest.taobao.com/sug?code=utf-8&q=手机`
         ).then((res) => {
-          console.log(44,res)
-        })
+          console.log(4455,res)
+        })*/
       }
     }
 </script>

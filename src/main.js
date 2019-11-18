@@ -8,7 +8,9 @@ import footComponent from "./components/global/footComponent";
 
 Vue.use(MpvueRouterPatch)
 Vue.config.productionTip = false
-
+//mockjs
+import useMock from './mock/mock'
+useMock(false)
 
 Vue.component('headComponent', headComponent);
 Vue.component('footComponent', footComponent);
